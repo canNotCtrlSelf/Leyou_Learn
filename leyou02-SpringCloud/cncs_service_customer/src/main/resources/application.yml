@@ -1,0 +1,36 @@
+server:
+  port: 80 #写成80端口，在浏览器访问时可以不用输入端口号
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: service-customer #它会作为微服务名称注入eureka容器
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10010/eureka # eureka服务端地址
+    # fetch-registry: true # 当服务消费方启动时，会检测这个参数是否为true，为true，会拉取eureka服务的列表只读备份，然后缓存在本地。默认为true
+    registry-fetch-interval-seconds: 5 # 5秒钟重新拉取一次列表
+service-provider: # 服务提供方的id
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 负载均衡使用随机算法
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms
+feign:
+  hystrix:
+    enabled: true # 开启feign对熔断的支持
+  compression:  # 设置请求与响应压缩
+    request:
+      enabled: true # 开启请求压缩
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型
+      min-request-size: 2048 # 设置触发压缩的大小下限
+    response:
+      enabled: true # 开启响应压缩
+logging:
+  level:
+    com.cncs: debug #设置com.cncs包下的日志都为debug

@@ -1,0 +1,19 @@
+server:
+  port: 10086 # 指定zuul网关端口号
+spring:
+  application:
+    name: cncs-zuul # 指定zuul网关应用名称
+zuul:
+  routes:
+    service-provider: # 默认的路由规则，映射路径默认是：/**
+  #  service-provider: /user/** # 这是映射路径，它是简化的路由配置
+  prefix: /api # 发起请求时加上这个前缀，表示。。。不加，则表示访问静态资源。
+#    service-provider:   # 这是路由id，随意写
+#      path: /service-provider/** # 服务映射路径
+##      url: http://localhost:9092 # 服务映射地址对应的具体url
+#      serviceId: service-provider # 服务名称
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 自动拉取服务列表的周期时间：5s
+    service-url:
+      defaultZone: http://localhost:10010/eureka # 指定eureka服务端url

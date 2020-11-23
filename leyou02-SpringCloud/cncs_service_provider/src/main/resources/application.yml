@@ -1,0 +1,24 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /
+mybatis:
+  type-aliases-package: com.cncs.pojo
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///mybatis_learn?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  application:
+    name: service-provider #它会作为微服务名称注入到eureka容器中
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10010/eureka # 这里端口号使用eureka服务器端口
+#      register-with-eureka: true #服务提供者在启动时，会检测这个参数是否为true，为true，才会注册到eureka注册中心，默认为true
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 服务续约间隔时间
+    lease-expiration-duration-in-seconds: 10 # 服务失效时间
+

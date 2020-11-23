@@ -1,0 +1,13 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: cncs-eureka #它会作为微服务名称注册到eureka容器
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10010/eureka # ${server.port}是eureka的服务端地址，这里也可以直接写10010
+  server:
+    eviction-interval-timer-in-ms: 10000 # 服务器下线10s，失效剔除
+    enable-self-preservation: false # 关闭自我保护
