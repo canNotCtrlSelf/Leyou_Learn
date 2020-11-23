@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script>
+            for (var i = 0; i < 5; i++) {
+                console.log(i);
+            }
+            console.log("循环外" + i);
+            const a = 10;
+
+            function fun1(a, b) {
+                b = b || 1;
+            }
+
+            var person1 = {
+                name: 'jack',
+                eat: function (food) {
+                    console.log(this.name + "喜欢吃" + food)
+                },
+                eat2: (food) => {
+                    console.log(person1.name + "喜欢吃" + food)
+                },
+                eat3(food) {
+                    console.log(person1.name + "喜欢吃" + food)
+                }
+            }
+            const person = {
+                name: "nick",
+                age: 21
+            }
+            var hi = ({name}) => console.log(name)
+            hi(person)
+
+            // map reduce
+            let arr = [10, 20, 30]
+            arr.map(a => (a + 10))
+            arr.reduce((a, b) => a + b, 100)
+            //对象扩展
+
+        </script>
+    </body>
+</html>
