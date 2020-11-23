@@ -1,0 +1,31 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INFO/pages/
+      suffix: .jsp
+
+server:
+  port: 8080
+
+
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql:///mybatis_learn
+  username: root
+  password: 123456
+  User:
+    name: jack
+    age: 18
+    sex: male
+    language:
+      - java
+      - python
+      - c++
+      - c#
+      - scala
+
+#server:
+#    port: 9090
+#  servlet:
+
+#    context-path: /

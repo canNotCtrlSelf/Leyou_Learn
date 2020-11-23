@@ -1,0 +1,18 @@
+server:
+  port: 9090
+  servlet:
+    path: /
+logging:
+  level:
+    com.cncs: debug
+#    org.springframework: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///mybatis_learn
+    username: root
+    password: 123456
+mybatis:
+  #  configuration:
+  #    map-underscore-to-camel-case: true
+  type-aliases-package: com.cncs.pojo
